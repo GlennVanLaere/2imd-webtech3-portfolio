@@ -4,13 +4,31 @@
     font-family: ubuntu;
 }
 
-
 div{
 text-align: center;
 background-color: #e3295a;
-padding-top: 30px;
-padding-bottom: 30px;
+padding-top: 20px;
+padding-bottom: 20px;
 margin-left: 20px;
 margin-right: 20px;
 margin-top: 20px;
+}
+.broken{
+    background-color:lightskyblue;
+}
+.infinity{
+    background-color: yellow;
+}
+h1{
+    font-size: 30px;
+}
+
+@media (min-width: 600px){
+    section{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    }
 }
