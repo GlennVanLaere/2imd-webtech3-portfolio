@@ -31,11 +31,12 @@ class Note {
   }
   
   saveToStorage(){
+    let storage = JSON.parse(localStorage.getItem("storage"));
 
+    storage.push(this.title);
     // console.log("were here");
-    array.forEach(text => {
-      window.localStorage.setItem("note", this.title);
-    });
+      window.localStorage.setItem("storage", JSON.stringify(storage));
+
     // location.reload;
   
 
@@ -74,11 +75,18 @@ class App {
   createNote(e){
     // this function should create a new note by using the Note() class
    let text = document.querySelector("#txtAddNote").value;
+
+   var inputArr = [];
+   inputArr.push(text);
+   
    
     // HINT🤩
     let note = new Note(text);
+
     note.add();
     note.saveToStorage();
+    
+
     // note.saveToStorage();
     // this.reset();
   }
