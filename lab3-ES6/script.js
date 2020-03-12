@@ -31,11 +31,17 @@ class Note {
   }
   
   saveToStorage(){
-    let storage = JSON.parse(localStorage.getItem("storage"));
+    //parse = omzetten naar JS objecten zodat die niet alles als 1 lange string leest
+    let storage = JSON.parse(localStorage.getItem("note"));
+
+    // zorgt ervoor dat er geen 
+    if(storage == null){
+      storage = [];
+    };
 
     storage.push(this.title);
     // console.log("were here");
-      window.localStorage.setItem("storage", JSON.stringify(storage));
+      window.localStorage.setItem("note", JSON.stringify(storage));
 
     // location.reload;
   
