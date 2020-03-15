@@ -32,18 +32,18 @@ class Note {
   
   saveToStorage(){
     //parse = omzetten naar JS objecten zodat die niet alles als 1 lange string leest
-    let storage = JSON.parse(localStorage.getItem("note"));
+    let storage = JSON.parse(localStorage.getItem("storage"));
 
-    // zorgt ervoor dat er geen 
+    // zorgt ervoor dat er geen error komt wanneer er geen waarde is. 
     if(storage == null){
       storage = [];
     };
 
     storage.push(this.title);
     // console.log("were here");
-      window.localStorage.setItem("note", JSON.stringify(storage));
+      window.localStorage.setItem("storage", JSON.stringify(storage));
 
-    // location.reload;
+    location.reload;
   
 
     // HINT🤩
@@ -69,11 +69,15 @@ class App {
     // pressing the enter key should also work
     this.btnAdd = document.querySelector("#btnAddNote");
     this.btnAdd.addEventListener("click", this.createNote.bind(this));
-    // this.loadNotesFromStorage();
+    this.loadNotesFromStorage();
   }
   
   loadNotesFromStorage() {
     // HINT🤩
+    //items uit de storage terug in een local array plaatsen. 
+    let storageLoad = JSON.parse(localStorage.getItem('storage'));
+    
+    console.log(storageLoad['storage']);
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
   }
