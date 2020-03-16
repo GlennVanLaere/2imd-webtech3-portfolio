@@ -3,7 +3,8 @@
 # https://github.com/Yanis705/2imd-webtech3-lab1.git
 
 # lab2
-future
-https://codepen.io/glenn-van-laere/pen/mdJwNKP
-digital ticket
-https://codepen.io/glenn-van-laere/pen/NWqgQYv
+# https://github.com/GlennVanLaere/2imd-webtech3-portfolio/tree/master/lab2-css-grid
+# future
+# https://codepen.io/glenn-van-laere/pen/mdJwNKP
+# digital ticket
+# https://codepen.io/glenn-van-laere/pen/NWqgQYv
