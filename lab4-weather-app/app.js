@@ -4,6 +4,7 @@ class App{
         this.getLocation();
         this.lat;
         this.long;
+        this.localstorageTimeStamp();
 
     }
     getLocation(){
@@ -47,7 +48,7 @@ class App{
                 document.getElementById("text").innerHTML = "Time for a iced coctail!"
             }
             localStorage.setItem("currentWeather", JSON.stringify(data));
-            localStorage.setItem("time", JSON.stringify(time));
+            localStorage.setItem("time", time.getTime());
 
             
             
@@ -59,7 +60,15 @@ class App{
         }
 
         localstorageTimeStamp(){
-            localStorage.getItem()
+            let time = localStorage.getItem("time");
+
+            let currentTime = new Date();
+            let timeCanPass = 3600;
+            let calculation = currentTime.getTime()-time;
+            console.log(calculation);
+            if(currentTime - time){
+
+            }
 
 
         }
