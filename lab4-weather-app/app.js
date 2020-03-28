@@ -36,23 +36,32 @@ class App{
         })
         .then(data => {
             let temp = data.currently.temperature;
-            let text = "no data";
-            console.log(temp);
-            localStorage.setItem("currentWeather", JSON.stringify(data));
+            let time = new Date();
 
+            document.getElementById("temprature").innerHTML = "it is "+ temp+" degrees";
+        
             if(temp < 15){
-                text = "";
+                document.getElementById("text").innerHTML = "its cold warm up with a lot of liquer!"
             }
             else{
-                text = "hot";
+                document.getElementById("text").innerHTML = "Time for a iced coctail!"
             }
-            console.log(text);
-            document.querySelector("#text").innerHTML=text;
+            localStorage.setItem("currentWeather", JSON.stringify(data));
+            localStorage.setItem("time", JSON.stringify(time));
+
+            
+            
             
         })
         .catch(err => {
             console.log(err);
         })
+        }
+
+        localstorageTimeStamp(){
+            localStorage.getItem()
+
+
         }
     }
 

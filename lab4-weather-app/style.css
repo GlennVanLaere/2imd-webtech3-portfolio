@@ -1,6 +1,13 @@
 #weather{
     width: 300px;
     height: 250px;
-    background-color: red;
+    background-image: url(./images/gin-cocktails.jpg);
+    background-size: cover;
     color: white;
+}
+#logo{
+    width: 200px;
+    text-align: center;
+    margin-top: -20px;
+    margin-left: 50px;
 }
