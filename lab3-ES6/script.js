@@ -37,12 +37,13 @@ class Note {
     // zorgt ervoor dat er geen error komt wanneer er geen waarde is. 
     if(storage == null){
       storage = [];
-    };
+    }
+    else{
+      storage.push(this.title);
+      // console.log("were here");
+        window.localStorage.setItem("storage", JSON.stringify(storage));
 
-    storage.push(this.title);
-    // console.log("were here");
-      window.localStorage.setItem("storage", JSON.stringify(storage));
-
+    }
     location.reload;
   
 
@@ -75,14 +76,6 @@ class App {
   loadNotesFromStorage() {
     // HINT🤩
     //items uit de storage terug in een local array plaatsen. 
-    let storageLoad = JSON.parse(localStorage.getItem('storage'));
-    
-    storageLoad.foreach( loadnotes => {
-      new Note(title);
-        note.add();
-      }
-
-    )
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
   }
