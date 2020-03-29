@@ -5,6 +5,8 @@ class App{
         this.lat;
         this.long;
         this.localstorageTimeStamp();
+        this.getTrump();
+        
 
     }
     getLocation(){
@@ -28,7 +30,7 @@ class App{
     }
     getWeather(){
         //https://api.darksky.net/forecast/b3a2ea193e79fb57e5af2cb459c254bf/37.8267,-122.4233
-        let url = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/18f1011af8a4c766973b12b265bd590b/${this.lat},${this.long}?units=auto`;
+        let url = `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/578f34885a24431ca5ea046be74456ce/${this.lat},${this.long}?units=auto`;
         fetch(url)
         .then(response => {
            
@@ -49,6 +51,7 @@ class App{
             }
             localStorage.setItem("currentWeather", JSON.stringify(data));
             localStorage.setItem("time", time.getTime());
+            
 
             
             
@@ -59,6 +62,44 @@ class App{
         })
         }
 
+        // getCoctail(){
+        //     let urlCoctail = `https://www.thecocktaildb.com/api/json/v1/1/random.php`;
+        //     fetch(urlCoctail).
+        //     then(coctailResponse => {
+        //         return coctailResponse.json();
+        //     })
+        //     .then(coctailData =>{
+        //         let summary  = coctailData.drinks;
+        //         console.log(summary);
+        //     })
+        // }
+        
+         //api runtest
+        //         getTrump(){
+        //     let urlTrump = `https://www.tronalddump.io/tag`;
+        //     fetch(urlTrump).
+        //     then(trumpResponse => {
+        //         return trumpResponse.json();
+        //     })
+        //     .then(trumpData =>{
+        //         let summary  = trumpData;
+        //         console.log(summary);
+        //     })
+        // }
+                 getTrump(){
+            let urlTrump = `https://www.tronalddump.io/quote/rkVCVSP-Q9KctbOOe8hwxg`;
+            fetch(urlTrump).
+            then(trumpResponse => {
+                return trumpResponse.json();
+            })
+            .then(trumpData =>{
+                let summary  = trumpData.value;
+                console.log(summary);
+                document.getElementById("trump").innerHTML = summary;
+            })
+        }
+
+
         localstorageTimeStamp(){
             let time = localStorage.getItem("time");
 
@@ -66,11 +107,20 @@ class App{
             let timeCanPass = 3600;
             let calculation = currentTime.getTime()-time;
             console.log(calculation);
-            if(currentTime - time){
-
+            if(calculation < timeCanPass){
+                this.getFromLocalStorage();
+            }
+            else{
+                this.getWeather();
             }
 
 
+        }
+        getFromLocalStorage(){
+            let current = new Date();
+            localStorage.setItem("time", current.getTime());
+            this.getLocation();
+            return current;
         }
     }
 

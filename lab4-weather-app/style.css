@@ -3,7 +3,9 @@
     height: 250px;
     background-image: url(./images/gin-cocktails.jpg);
     background-size: cover;
-    color: white;
+    color: green;
+    font-family: sans-serif;
+    font-weight: 900;
 }
 #logo{
     width: 200px;
