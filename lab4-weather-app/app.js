@@ -87,7 +87,7 @@ class App{
         //     })
         // }
                  getTrump(){
-            let urlTrump = `https://www.tronalddump.io/quote/rkVCVSP-Q9KctbOOe8hwxg`;
+            let urlTrump = `https://www.tronalddump.io/quote/Il_bY0K2QkWWaQIQHzcCtw`;
             fetch(urlTrump).
             then(trumpResponse => {
                 return trumpResponse.json();
@@ -95,7 +95,7 @@ class App{
             .then(trumpData =>{
                 let summary  = trumpData.value;
                 console.log(summary);
-                document.getElementById("trump").innerHTML = summary;
+                document.getElementById("trump").innerHTML = summary + "<br>" + "-trump";
             })
         }
 
